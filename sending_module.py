@@ -101,7 +101,7 @@ class TestSending:
 
     async def send(self, num):
         try:
-            await send_any_msg(self.message, num['user_id'], markup=self.message.reply_markup)
+            await send_any_msg(self.message, num['id'], markup=self.message.reply_markup)
             self.all_count += 1
         except Exception as e:
             self.all_count += 1
@@ -110,7 +110,7 @@ class TestSending:
 
     async def send_group(self, num, media_group):
         try:
-            await bot.send_media_group(num['user_id'], media=media_group)
+            await bot.send_media_group(num['id'], media=media_group)
             self.all_count += 1
         except TelegramRetryAfter as e:
             await asyncio.sleep(e.retry_after)
