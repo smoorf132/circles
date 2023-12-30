@@ -1,0 +1,4 @@
+asyncpg~=0.27.0
+aiofiles~=0.8.0
+aiogram~=3.2.0
+ujson
