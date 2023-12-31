@@ -96,7 +96,7 @@ def approve_mailing_kb():
 
 
 @dp.message(Command(commands=["start"]))
-async def command_start_handler(message: Message, state: FSMContext) -> None:
+async def command_start_handler(message: Message, state: FSMContext, repo: Repo) -> None:
     await repo.create_user(message.from_user.id)
     if await checker(message.from_user.id) == 'bad':
         await o_p(message)
