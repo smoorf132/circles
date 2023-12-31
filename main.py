@@ -97,11 +97,10 @@ def approve_mailing_kb():
 
 @dp.message(Command(commands=["start"]))
 async def command_start_handler(message: Message, state: FSMContext) -> None:
-    """
     await repo.create_user(message.from_user.id)
     if await checker(message.from_user.id) == 'bad':
         await o_p(message)
-        return"""
+        return
     await message.answer(f"""Привет, <b>{message.from_user.full_name}!</b>
 
 С моей помощью ты можешь превратить любое свое обычное видео в видеосообщение!
@@ -146,7 +145,7 @@ async def mailing_message(
         message: Message,
         state: FSMContext,
 ):
-    await message.answer('Вы уверены, что хотите запустить рассылку?\n\n'
+    await message.answer('Вы уверены, что хотите запустить рассылку?\n\n'                                                                                                                                                                                           
                          'Остановить её можно будет только написав разработчику.',
                          reply_markup=approve_mailing_kb())
     await state.update_data(mailing_message=message.model_dump_json())
